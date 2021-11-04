@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { types } from '../../types/types';
+import { FilterSelectStyles } from './FilterSelectStyles';
 
-export const CountryListByRegion = () => {
+export const FilterSelect = () => {
   const option = useRef(null);
   const dispatch = useDispatch();
   const filterByRegion = useSelector((state) => state.filterByRegion);
@@ -13,7 +14,7 @@ export const CountryListByRegion = () => {
     option.current.setAttribute('disabled', true);
   };
   return (
-    <div>
+    <FilterSelectStyles>
       <select onChange={handleSelectChange} value={filterByRegion}>
         <option ref={option} value="">
           Filter by Region
@@ -24,6 +25,6 @@ export const CountryListByRegion = () => {
         <option value="Oceania">Oceania</option>
         <option value="Asia">Asia</option>
       </select>
-    </div>
+    </FilterSelectStyles>
   );
 };

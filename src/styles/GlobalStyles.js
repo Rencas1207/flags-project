@@ -10,6 +10,9 @@ export const GlobalStyles = createGlobalStyle`
       --very-dark-blue-2: hsl(207, 26%, 17%)
       --very-dark-blue-1: hsl(200, 15%, 8%)
    }
+   *, *::after, *::before{
+      box-sizing: border-box;
+   }
    body{
       margin: 0;
       padding: 0;

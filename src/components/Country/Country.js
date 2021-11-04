@@ -1,10 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { CountryStyled } from './CountryStyles.js';
 
 export const Country = ({ flag, name, population, region, capital }) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push(`/country/${decodeURIComponent(name)}`);
+  };
+
   return (
-    <CountryStyled>
+    <CountryStyled onClick={handleClick}>
       <img loading="lazy" src={flag} alt={name} />
       <h2>{name}</h2>
       <div className="details">

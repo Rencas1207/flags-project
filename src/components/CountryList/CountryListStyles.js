@@ -1,22 +1,13 @@
 import styled from 'styled-components';
 
-const breakpoints = {
-  desktop: '@media screen and (max-width: 1440px)',
-  tablet: '@media screen and (max-width: 991px)',
-  phone: '@media screen and (max-width: 500px)',
-};
-
 export const CountryListStyled = styled.div`
   display: grid;
-  /* grid-template-columns: repeat(1, 1fr); */
-  gap: 3.6rem 0;
+  grid-template-columns: repeat(auto-fill, minMax(0, 28.4rem));
+  grid-auto-flow: columns;
+  gap: 2.5rem 3rem;
   justify-content: center;
-  padding: 4rem 2rem;
-  border: 1px solid red;
-  /* ${breakpoints.tablet} {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  ${breakpoints.desktop} {
-    grid-template-columns: repeat(4, 1fr);
-  } */
+  padding: 0rem 2rem 4rem;
+
+  /* align-items: flex-start; */
+  /* border: 1px solid red; */
 `;

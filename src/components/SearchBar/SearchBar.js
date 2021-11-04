@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { types } from '../../types/types';
 
-import { CountryListByNameStyles } from './CountryListByNameStyles';
+import { SearchBarStyles } from './SearchBarStyles';
 
-export const CountryListByName = () => {
+export const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
+
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -14,27 +15,33 @@ export const CountryListByName = () => {
       type: types.getCountryByName,
       payload: inputValue,
     });
-    // setInputValue('');
-    // console.log(inputValue);
   };
 
   const clearInput = () => {
+    dispatch({
+      type: types.getCountryByName,
+      payload: '',
+    });
     setInputValue('');
   };
 
   return (
-    <CountryListByNameStyles>
+    <SearchBarStyles>
       <i className="fas fa-search"></i>
       <input
         type="text"
         autoComplete="off"
-        name="inputValue"
+        name="values"
         className="form-input"
         value={inputValue}
         placeholder="Search for a country..."
         onChange={handleInputChange}
       />
-      {inputValue && <button onClick={clearInput}>✖️</button>}
-    </CountryListByNameStyles>
+      {inputValue && (
+        <button className="close" onClick={clearInput}>
+          ✖️
+        </button>
+      )}
+    </SearchBarStyles>
   );
 };

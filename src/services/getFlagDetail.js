@@ -11,8 +11,8 @@ const fromApiResponse = (countryData) => {
   return [];
 };
 
-export const getFlags = () => {
-  const URL = 'https://restcountries.com/v3.1/all';
+export const getFlagDetail = (name) => {
+  const URL = `https://restcountries.com/v3.1/name/${name}`;
   return fetch(URL)
     .then((resp) => resp.json())
     .then(fromApiResponse)
