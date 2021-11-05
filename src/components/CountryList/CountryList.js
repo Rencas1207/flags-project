@@ -34,16 +34,19 @@ export const CountryList = () => {
 
   return (
     <CountryListStyled>
-      {countryList.map(({ common, png, population, region, capitalRef }) => (
-        <Country
-          key={common}
-          flag={png}
-          name={common}
-          population={population}
-          region={region}
-          capital={capitalRef}
-        />
-      ))}
+      {countryList.map(
+        ({ common, png, population, region, capitalRef, cca3 }) => (
+          <Country
+            key={common}
+            flag={png}
+            name={common}
+            population={population}
+            region={region}
+            capital={capitalRef}
+            cca3={cca3}
+          />
+        )
+      )}
     </CountryListStyled>
   );
 };

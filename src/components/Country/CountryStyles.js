@@ -8,6 +8,7 @@ export const CountryStyled = styled.div`
   border-radius: 0.8rem;
   overflow: hidden;
   background: var(--white);
+  color: var(--black);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
   margin: 1rem;
   cursor: pointer;

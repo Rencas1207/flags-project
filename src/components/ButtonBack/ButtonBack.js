@@ -11,7 +11,7 @@ export const ButtonBack = () => {
   return (
     <ButtonBackStyles onClick={handleBack}>
       <i className="fas fa-long-arrow-alt-left"></i>
-      Back
+      <p>Back</p>
     </ButtonBackStyles>
   );
 };

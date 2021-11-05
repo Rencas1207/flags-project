@@ -72,3 +72,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### React-Redux
 
 1. Utilizamos react-redux en nuestro archivo principal de App.js
+
+2. Reutilizamos el dark-mode del project de social-media-dashboard
+
+3. Instalamos slugify para es para convertir todos lo que venga en la url en guiones parecido al decodeURL. Lo utilizamos en Country.js
+
+4. Al final para filtrar los detalles de los países, se pudo con con el endpoints de {code}

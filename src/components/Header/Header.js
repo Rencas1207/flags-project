@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { WrapperStyles } from '../Wrapper/WrappersStyles';
 import { HeaderStyles } from './HeaderStyles';
 
-export const Header = () => {
+export const Header = ({ setDarkMode, darkMode }) => {
+  const handleClick = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <HeaderStyles>
       <WrapperStyles>
@@ -15,8 +19,12 @@ export const Header = () => {
             <h1 className="content-title">Where in the world?</h1>
           </Link>
 
-          <div className="header-dark-mode">
-            <i className="far fa-moon"></i>
+          <div className="header-dark-mode" onClick={handleClick}>
+            {darkMode ? (
+              <i className="fas fa-moon"></i>
+            ) : (
+              <i className="far fa-moon"></i>
+            )}
             <p>Dark Mode</p>
           </div>
         </div>

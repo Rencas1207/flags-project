@@ -3,11 +3,12 @@ import { useHistory } from 'react-router-dom';
 
 import { CountryStyled } from './CountryStyles.js';
 
-export const Country = ({ flag, name, population, region, capital }) => {
+export const Country = ({ flag, name, population, region, capital, cca3 }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/country/${decodeURIComponent(name)}`);
+    // history.push(`/country/${name.replaceAll(' ', '-')}`);
+    history.push(`/country/${cca3}`);
   };
 
   return (

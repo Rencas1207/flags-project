@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonBack } from '../components/ButtonBack/ButtonBack';
-import { Header } from '../components/Header/Header';
+import { CountrySelected } from '../components/CountrySelected/CountrySelected';
+import { WrapperStyles } from '../components/Wrapper/WrappersStyles';
 import { getFlagDetail } from '../services/getFlagDetail';
 
 export const Detail = ({ match }) => {
-  //   console.log(props);
+  const code = match.params.code;
 
-  const name = match.params.name;
-
-  const [detail, setDetail] = useState([]);
-
-  //   localStorage.getItem('name');
+  const [detail, setDetail] = useState({
+    png: '',
+    common: '',
+    population: '',
+    region: '',
+    capitalRef: '',
+    common2: '',
+    subregion: '',
+    tldRef: '',
+    nameCurrencies: '',
+    langs: [],
+    borders: [],
+  });
 
   useEffect(() => {
-    getFlagDetail(`${name}`).then((data) => setDetail(data));
+    getFlagDetail(`${code}`).then((data) => setDetail(data[0]));
 
     return () => setDetail('');
-  }, [setDetail, name]);
+  }, [setDetail, code]);
 
-  //   useEffect(() => {
-  //     effect;
-  //     return () => {
-  //       cleanup;
-  //     };
-  //   }, [input]);
-
-  console.log(detail);
   return (
     <>
-      <Header />
-      <ButtonBack />
-      <h1>Hola details</h1>
-      {match.params.name}
+      <WrapperStyles>
+        <ButtonBack />
+        <CountrySelected {...detail} />
+      </WrapperStyles>
     </>
   );
 };
