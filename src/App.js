@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -32,10 +32,10 @@ export const App = () => {
           <Header setDarkMode={setDarkMode} darkMode={darkMode} />
           <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
           <Route
-            exact
             path={`${process.env.PUBLIC_URL}/country/:code`}
             component={Detail}
           />
+          <Redirect to={`${process.env.PUBLIC_URL}/`} />
         </Router>
       </Provider>
     </main>
