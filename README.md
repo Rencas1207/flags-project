@@ -1,4 +1,4 @@
-# Social Media Dashboard with Theme Switcher
+# REST Countries API with color theme switcher
 
 ![](https://repository-images.githubusercontent.com/423318039/20fde1d9-a059-4d8a-930b-1d8356673dc6)
 
