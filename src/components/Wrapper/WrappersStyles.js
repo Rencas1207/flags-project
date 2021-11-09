@@ -9,9 +9,9 @@ export const WrapperStyles = styled.div`
     padding: 0 4rem;
   }
   ${breakpoints.tablet} {
-    padding: 0 6rem;
+    padding: 0 5rem;
   }
   ${breakpoints.desktop} {
-    padding: 0 7rem;
+    padding: 0 6rem;
   }
 `;

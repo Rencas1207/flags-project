@@ -50,7 +50,6 @@ const fromApiResponse = (countryData) => {
 };
 
 export const getFlagDetail = (code) => {
-  // const URL = `https://restcountries.com/v3.1/name/${name}`;
   const URL = `https://restcountries.com/v3.1/alpha/${code}`;
   return fetch(URL)
     .then((resp) => resp.json())

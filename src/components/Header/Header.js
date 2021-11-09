@@ -13,7 +13,7 @@ export const Header = ({ setDarkMode, darkMode }) => {
       <WrapperStyles>
         <div className="content">
           <Link
-            to="/"
+            to={`${process.env.PUBLIC_URL}`}
             style={{ textDecoration: 'none', color: 'var(--black)' }}
           >
             <h1 className="content-title">Where in the world?</h1>

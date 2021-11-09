@@ -5,6 +5,8 @@ import { WrapperStyles } from '../components/Wrapper/WrappersStyles';
 import { getFlagDetail } from '../services/getFlagDetail';
 
 export const Detail = ({ match }) => {
+  const [loaded, setLoaded] = useState(false);
+
   const code = match.params.code;
 
   const [detail, setDetail] = useState({
@@ -22,7 +24,11 @@ export const Detail = ({ match }) => {
   });
 
   useEffect(() => {
-    getFlagDetail(`${code}`).then((data) => setDetail(data[0]));
+    setLoaded(false);
+    getFlagDetail(`${code}`).then((data) => {
+      setDetail(data[0]);
+      setLoaded(true);
+    });
 
     return () => setDetail('');
   }, [setDetail, code]);
@@ -31,7 +37,7 @@ export const Detail = ({ match }) => {
     <>
       <WrapperStyles>
         <ButtonBack />
-        <CountrySelected {...detail} />
+        <CountrySelected {...detail} loaded={loaded} setLoaded={setLoaded} />
       </WrapperStyles>
     </>
   );

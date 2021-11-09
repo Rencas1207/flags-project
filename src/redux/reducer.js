@@ -2,9 +2,8 @@ import { types } from '../types/types';
 
 const initialState = {
   countryList: [],
-  countryByName: [],
-  countryByRegion: [],
-  filterByRegion: '',
+  countryByName: '',
+  countryByRegion: '',
 };
 
 export const reducer = (state = initialState, action) => {
@@ -15,42 +14,16 @@ export const reducer = (state = initialState, action) => {
         countryList: action.payload,
       };
 
-    case types.getCountryByRegion:
-      // let list;
-
-      // if (state.filterByRegion !== '') {
-      //   list =
-      // }
-      if ('' === action.payload) {
-        return {
-          ...state,
-          countryByRegion: [],
-          filterByRegion: '',
-        };
-      }
-
+    case types.getCountryByName:
       return {
         ...state,
-        countryByRegion: state.countryList.filter(
-          (country) => country.region === action.payload
-        ),
-        filterByRegion: action.payload,
+        countryByName: action.payload,
       };
 
-    case types.getCountryByName:
-      let list;
-
-      if (state.filterByRegion !== '') {
-        list = state.countryByRegion;
-      } else {
-        list = state.countryList;
-      }
-
+    case types.getCountryByRegion:
       return {
         ...state,
-        countryByName: list.filter(({ common }) =>
-          common.toLowerCase().includes(action.payload.toLowerCase())
-        ),
+        countryByRegion: action.payload,
       };
 
     default:

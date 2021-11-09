@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../styles/MediaQueries';
 
-export const ActionsListStyles = styled.div`
+export const ActionsListStyles = styled.section`
   margin: 2rem 0 1rem;
   .grid {
     display: grid;

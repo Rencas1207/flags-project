@@ -15,30 +15,27 @@ import { Header } from './components/Header/Header';
 const store = createStore(reducer);
 
 export const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const mainClass = darkMode ? 'is-dark-mode' : 'is-light-mode';
-
-  function changeMedia(mq) {
-    setDarkMode(mq.matches);
-  }
+  const getTheme = () => {
+    return JSON.parse(localStorage.getItem('theme')) || false;
+  };
+  const [darkMode, setDarkMode] = useState(getTheme());
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener('change', changeMedia);
-    setDarkMode(mq.matches);
-    return () => {
-      mq.removeEventListener('change', changeMedia);
-    };
-  }, [setDarkMode]);
+    localStorage.setItem('theme', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   return (
-    <main className={mainClass}>
+    <main className={darkMode ? 'is-dark-mode' : 'is-light-mode'}>
       <Provider store={store}>
         <Router>
           <GlobalStyles />
           <Header setDarkMode={setDarkMode} darkMode={darkMode} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/country/:code" component={Detail} />
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/country/:code`}
+            component={Detail}
+          />
         </Router>
       </Provider>
     </main>

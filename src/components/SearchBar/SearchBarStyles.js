@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { breakpoints } from '../../styles/MediaQueries';
 
 export const SearchBarStyles = styled.label`
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   font-size: 1.6rem;
@@ -23,7 +22,6 @@ export const SearchBarStyles = styled.label`
     margin-right: 2rem;
   }
   .form-input {
-    /* width: 100%; */
     height: 4.8rem;
     line-height: 4.8rem;
     flex: 1;
@@ -31,8 +29,8 @@ export const SearchBarStyles = styled.label`
     border: none;
     background: var(--white);
     color: var(--black);
-    /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04); */
     &::-webkit-input-placeholder {
+      font-size: 1.4rem;
       color: #c4c4c4;
     }
   }
@@ -42,5 +40,6 @@ export const SearchBarStyles = styled.label`
     border: none;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
     background: transparent;
+    cursor: pointer;
   }
 `;

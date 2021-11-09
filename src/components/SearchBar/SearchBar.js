@@ -5,24 +5,24 @@ import { types } from '../../types/types';
 import { SearchBarStyles } from './SearchBarStyles';
 
 export const SearchBar = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [values, setValues] = useState('');
 
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    setValues(e.target.value);
     dispatch({
       type: types.getCountryByName,
-      payload: inputValue,
+      payload: e.target.value,
     });
   };
 
   const clearInput = () => {
+    setValues('');
     dispatch({
       type: types.getCountryByName,
       payload: '',
     });
-    setInputValue('');
   };
 
   return (
@@ -33,11 +33,11 @@ export const SearchBar = () => {
         autoComplete="off"
         name="values"
         className="form-input"
-        value={inputValue}
+        value={values}
         placeholder="Search for a country..."
         onChange={handleInputChange}
       />
-      {inputValue && (
+      {values && (
         <button className="close" onClick={clearInput}>
           ✖️
         </button>

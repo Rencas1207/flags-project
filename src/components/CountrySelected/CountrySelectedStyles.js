@@ -3,11 +3,13 @@ import { breakpoints } from '../../styles/MediaQueries';
 
 export const CountrySelectedStyles = styled.div`
   padding-bottom: 5rem;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .country-img {
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
+
   .country-title {
     margin: 3.5rem 0 2rem;
   }

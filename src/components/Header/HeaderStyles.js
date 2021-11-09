@@ -4,6 +4,7 @@ export const HeaderStyles = styled.header`
   position: sticky;
   left: 0;
   top: 0;
+  z-index: 10;
   background: var(--white);
   color: var(--black);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
